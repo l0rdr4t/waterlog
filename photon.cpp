@@ -40,6 +40,7 @@ void loop() {
     // Set state
     int oldState = state;
     currentTemp = analogRead(temp);
+    Particle.publish("temp_reading", currentTemp, PUBLIC);
     if (currentTemp < templo) {
         state = 0;
     } else if (currentTemp < temphi) {
